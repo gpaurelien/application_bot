@@ -40,7 +40,6 @@ field = {
 
 try:
     driver.get(url)
-
     time.sleep(2)
 
     cookies = WebDriverWait(driver, 10).until(lambda x: x.find_element(By.XPATH, '/html/body/div[2]/section[1]/div/div/div/div[2]/button[2]'))
@@ -52,13 +51,10 @@ try:
 
         element = driver.find_element(By.XPATH, k)
 
-        if v == None:
+        if not v:
             element.click()
             continue
 
         element.send_keys(v)
-
-    # if element:
-    #     print(type(element))
 except Exception as e:
     print(str(e))
